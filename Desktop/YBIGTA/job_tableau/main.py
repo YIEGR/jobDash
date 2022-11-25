@@ -1,4 +1,5 @@
 # main.py
 
-import streamlit as streamlit
+import streamlit as st
+
 st.text('This is our job dashboard!')
