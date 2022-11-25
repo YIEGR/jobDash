@@ -1,0 +1,7 @@
+# .streamlit/secrets.toml
+
+[tableau]
+token_name = "job_streamlit"
+token_secret = "KQwYktITRW6hGRrm+YySsA==:nvmZTc73t0AcbI19Y7umwWRMcngFtGAQ"
+server_url = "https://prod-apnortheast-a.online.tableau.com/"
+site_id = "yiegr"
