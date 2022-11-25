@@ -1,4 +1,4 @@
 # main.py
 
 import streamlit as streamlit
-st.text('It's Fuckin hard!)
+st.text('This is our job dashboard!')
