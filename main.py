@@ -6,13 +6,9 @@ import tableauserverclient as TSC
 import pandas as pd
 from io import StringIO
 
-st.text('This is our job dashboard!')
+st.text('This is 삼김이둘s job dashboard!')
 
 # streamlit_app.py
-
-import streamlit as st
-import tableauserverclient as TSC
-
 
 # Set up connection.
 tableau_auth = TSC.PersonalAccessTokenAuth(
@@ -29,17 +25,18 @@ server = TSC.Server(st.secrets["tableau"]["server_url"], use_server_version=True
 @st.experimental_memo(ttl=600)
 def run_query():
     with server.auth.sign_in(tableau_auth):
-
+        
+        #workbooks : 나의 작업 목록, 여기서는 job_dash_garam
         # Get all workbooks.
         workbooks, pagination_item = server.workbooks.get()
         workbooks_names = [w.name for w in workbooks]
 
         # Get views for first workbook.
-        server.workbooks.populate_views(workbooks[0])
-        views_names = [v.name for v in workbooks[0].views]
+        server.workbooks.populate_views(workbooks[2])
+        views_names = [v.name for v in workbooks[2].views]
 
         # Get image & CSV for first view of first workbook.
-        view_item = workbooks[0].views[0]
+        view_item = workbooks[2].views[0]
         server.views.populate_image(view_item)
         server.views.populate_csv(view_item)
         view_name = view_item.name
@@ -58,7 +55,7 @@ st.write("Found the following workbooks:", ", ".join(workbooks_names))
 
 st.subheader("👁️ Views")
 st.write(
-    f"Workbook *{workbooks_names[0]}* has the following views:",
+    f"Workbook *{workbooks_names[2]}* has the following views:",
     ", ".join(views_names),
 )
 
