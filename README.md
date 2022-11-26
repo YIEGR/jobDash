@@ -1,2 +1,2 @@
-# GrBasecode
-This repository contains all the codes I need to study
+# JOB_Dash
+Job dashboard by 삼김이둘
