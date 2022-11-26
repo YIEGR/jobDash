@@ -4,6 +4,7 @@ from http import server
 import streamlit as st
 import tableauserverclient as TSC
 import pandas as pd
+from io import StringIO
 
 st.text('This is our job dashboard!')
 
@@ -16,7 +17,7 @@ import tableauserverclient as TSC
 # Set up connection.
 tableau_auth = TSC.PersonalAccessTokenAuth(
     st.secrets["tableau"]["token_name"],
-    st.secrets["tableau"]["personal_access_token"],
+    st.secrets["tableau"]["token_secret"],
     st.secrets["tableau"]["site_id"],
 )
 server = TSC.Server(st.secrets["tableau"]["server_url"], use_server_version=True)
